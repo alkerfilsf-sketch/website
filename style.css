@@ -1,0 +1,507 @@
+/* Reset dan Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden; /* Cegah scroll horizontal */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.navbar {
+    background: rgba(5, 5, 5, 0.418);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.settings-dropdown {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.9rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #000000, #8c00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Settings Button */
+.settings-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #ffffff;
+    transition: transform 0.5s ease;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.settings-btn:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.settings-btn.rotated {
+    transform: rotate(360deg);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    background: rgba(20, 20, 20, 0.411);
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    padding: 10px 0;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #8c00ff;
+    padding-left: 25px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        min-width: 180px;
+        right: auto;
+        left: 0;
+    }
+}
+
+/* Hero Section */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero {
+    background: linear-gradient(135deg, #000000 20%, #ffffff 0%, #000000 30%);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    color: rgb(0, 0, 0);
+    padding: 150px 0 100px;
+    text-align: center;
+    background-size: 400% 400%;
+}
+
+.hero-content h1 {
+    background-color: linear-gradient(45deg, #000000, #8c00ff);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #f3f3f3;
+    color: #000000;
+}
+
+/* About Section */
+.about {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #000000 0%, #ffffff 10%, #000000 10%);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.about h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    background-color: linear-gradient(45deg, #000000, #8c00ff);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text p {
+    text-align: left;
+    color: #e9e8eb;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    transition: color 0.9s;
+}
+
+.about-text p:active {
+    color: #000000;
+}
+
+/* ✅ DIPERBAIKI: Gambar responsif */
+.about-image {
+    display: flex;
+    justify-content: flex-end;
+    width: 200%; /* Dulu 120% → sekarang 100% */
+    max-width: 102%;
+    overflow: visible;
+}
+
+.placeholder-img {
+    background: url(download.jpeg) center/cover no-repeat;
+    height: 432px;
+    width: 100%;
+    max-width: 540px; /* Tidak lebih dari 540px */
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.placeholder-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* Mobile: sesuaikan tinggi gambar */
+@media (max-width: 768px) {
+    .placeholder-img {
+        height: 250px;
+    }
+}
+
+/* Services Section */
+.services {
+    padding: 80px 0;
+    background: rgb(0, 0, 0);
+}
+
+.skill {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: linear-gradient(135deg, #ffffff, #000000 50%, #ffffff);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.952);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 5px 30px rgb(255, 255, 255);
+}
+
+.service-card h3 {
+    margin-bottom: 1rem;
+    color: black;
+}
+
+/* Link kartu Skill */
+.service-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.service-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Hobby Section */
+.hobby {
+    padding: 80px 0;
+    background: rgb(0, 0, 0);
+}
+
+.hobi {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.hobby-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.hobby-card {
+    background: linear-gradient(135deg, #ffffff, #000000 50%, #ffffff);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.952);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.hobby-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 5px 30px rgb(255, 255, 255);
+}
+
+.hobby-card h3 {
+    margin-bottom: 1rem;
+    color: black;
+}
+
+/* Link kartu hobby */
+.hobby-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.hobby-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Template Section */
+.template {
+    padding: 80px 0;
+    background: rgb(0, 0, 0);
+}
+
+.Template {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.template-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.n8n-card {
+    background: linear-gradient(135deg, #ffffff, #000000 50%, #ffffff);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.952);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.n8n-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 5px 30px rgb(255, 255, 255);
+}
+
+.n8n-card h3 {
+    margin-bottom: 1rem;
+    color: black;
+}
+
+/* Link kartu template n8n */
+.n8n-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.n8n-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+    background: #000000;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: #fffefe;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    outline: none;
+    transition: all 0.3s;
+}
+
+.contact-form input:hover,
+.contact-form textarea:hover {
+    background: #ffffff;
+    color: black;
+}
+
+.contact-button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ffffff, #000000 50%);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite, glow 2s ease-in-out infinite alternate;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.contact-button:active {
+    transform: scale(0.95);
+}
+
+@keyframes glow {
+    from { box-shadow: 0 5px 20px rgb(0, 0, 0); }
+    to { box-shadow: 0 5px 30px rgb(255, 255, 255); }
+}
+
+/* Footer */
+.footer {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hobby-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .template-grid {
+        grid-template-columns: 1fr;
+}
+}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Projects - KyuraID</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+
+        .cyber-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .cyber-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .cyber-header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #000000, #fffefe, #000000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #000000;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cyber-header p {
+            color: #cccccc;
+            font-size: 1.2rem;
+        }
+
+        /* Skills Overview */
+        .skills-overview {
+            background: rgb(0, 0, 0);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            text-align: center;
+            text-decoration: none;
+            padding: 1rem;
+            background: linear-gradient(135deg, #000000, #fffefe);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background: rgba(250, 250, 250, 0.705);
+        }
+        .skill-item h4 {
+            color: #000000;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-item p {
+            color: #000000;
+            font-size: 0.9rem;
+        }
+
+        /* Navigation */
+        .nav-cyber {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .nav-cyber a {
+            color: #fffefe;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid #f5fdff;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-cyber a:hover {
+            background: rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cyber-header h1 {
+                font-size: 2rem;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+            
+            .nav-cyber a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-container">
+        <!-- Header -->
+        <div class="cyber-header">
+            <h1>🔒 Cyber Security Projects</h1>
+            <p>Learning Journey • Basic Tools • Security Fundamentals</p>
+        </div>
+
+
+
+        <!-- Skills Overview -->
+        <div class="skills-overview">
+            <h3 style="text-align: center; color: #ffffff; margin-bottom: 2rem;">🛠️ Cyber Security Learning Path</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h4>Network Basics</h4>
+                    <p>IP, DNS, Protocols</p>
+                </div>
+                <a href="../Project-Grid/LinuxTerminal.html" class="skill-item">
+                    <h4>Linux Terminal</h4>
+                    <p>Basic Commands</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-cyber">
+            <a href="../index.html">← Back to Main Portfolio</a>
+        </div>
+    </div>
+
+    <script>
+        function showDemo(demoId) {
+            // Hide all demo sections
+            document.querySelectorAll('.demo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected demo
+            const demoSection = document.getElementById(demoId);
+            if (demoSection) {
+                demoSection.classList.add('active');
+                demoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Close demo when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.project-link') && !event.target.closest('.demo-section')) {
+                document.querySelectorAll('.demo-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+            }
+        });
+
+        // Add keyboard escape to close demos
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.demo-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

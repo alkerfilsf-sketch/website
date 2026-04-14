@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Terminal - KyuraID</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+
+        .cyber-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .cyber-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .cyber-header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #000000, #fffefe, #000000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #000000;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cyber-header p {
+            color: #cccccc;
+            font-size: 1.2rem;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(247, 247, 247, 0.2);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            color: rgb(255, 255, 255);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #000000, #fffefe);
+            color: #000000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(247, 247, 247, 0.3);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(135deg, #000000, #fffefe);
+            color: #000;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .project-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+        }
+
+        .project-link.outline {
+            background: transparent;
+            border: 2px solid #ececec;
+            color: #ffffff;
+        }
+
+        .project-link.outline:hover {
+            background: rgb(0, 0, 0);
+        }
+
+        /* Demo Sections */
+        .demo-section {
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .demo-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .demo-section p{
+            margin-top: 1rem;
+            color: #cccccc;
+        }
+
+        .terminal {
+            background: #000000;
+            border: 1px solid #000000;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            color: #ffffff;
+        }
+
+        .terminal .command {
+            color: #ffffff;
+        }
+
+        .terminal .output {
+            color: #cccccc;
+            margin-top: 0.5rem;
+            white-space: pre-line;
+        }
+
+        /* Navigation */
+        .nav-cyber {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .nav-cyber a {
+            color: #fffefe;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid #f5fdff;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-cyber a:hover {
+            background: rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cyber-header h1 {
+                font-size: 2rem;
+            }
+
+            .project-links {
+                flex-direction: column;
+            }
+
+            .nav-cyber a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <body class="cyber-container">
+
+        <!-- Header -->
+        <div class="cyber-header">
+            <h1>Linux Teminal by Kyura ID</h1>
+            <p>Basic Commands</p>
+        </div>
+        <!-- Projects Grid Linux CLI -->
+        <div class="projects-grid">
+
+            <!-- Project 1: Make Directory/Folder -->
+            <div class="project-card">
+                <div class="project-icon">📁</div>
+                <h3>Make Directory/Folder</h3>
+                <p>Belajar untuk Membuat sebuah Folder</p>
+                <br><br><br><br><br><br>
+
+                <div class="tech-tags">
+                    <span class="tech-tag">Beginner</span>
+                    <span class="tech-tag">CLI</span>
+                </div>
+
+                <div class="project-links">
+                    <button class="project-link" onclick="showDemo('mkdir')">View Command</button>
+                </div>
+            </div>
+
+            <!-- Project 2: Make Hidden Directory/Folder -->
+            <div class="project-card">
+                <div class="project-icon">Sticker</div>
+                <h3>Make Hidden Directory/Folder</h3>
+                <p>Belajar untuk Membuat sebuah Folder Tersembunyi</p>
+                <br><br><br><br>
+
+                <div class="tech-tags">
+                    <span class="tech-tag">Beginner</span>
+                    <span class="tech-tag">CLI</span>
+                </div>
+
+                <div class="project-links">
+                    <button class="project-link" onclick="showDemo('mkdir-hidden')">View Command</button>
+                </div>
+            </div>
+
+            <!-- Project 3: Make Directoy/Folder with Space -->
+            <div class="project-card">
+                <div class="project-icon">Sticker</div>
+                <h3>Make Directory/Folder with Space</h3>
+                <p>Belajar untuk Membuat sebuah Folder dengan Spasi</p>
+                <br><br><br><br>
+
+                <div class="tech-tags">
+                    <span class="tech-tag">Beginner</span>
+                    <span class="tech-tag">CLI</span>
+                </div>
+
+                <div class="project-links">
+                    <button class="project-link" onclick="showDemo('mkdir-space')">View Command</button>
+                </div>
+            </div>
+
+            <!-- Project 4: List for look in the Folder -->
+            <div class="project-card">
+                <div class="project-icon">Sticker</div>
+                <h3>List on Directory</h3>
+                <p>Menampilkan isi di dalam Directory/Folder yang di Targetkan.</p>
+                <br><br><br><br>
+
+                <div class="tech-tags">
+                    <span class="tech-tag">Beginner</span>
+                    <span class="tech-tag">CLI</span>
+                </div>
+
+                <div class="project-links">
+                    <button class="project-link" onclick="showDemo('ls')">View Command</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- View Command Membuat Directory -->
+        <!-- Section 1 -->
+        <div id="mkdir" class="demo-section">
+            <h3>Command Membuat Directory/Folder.</h3>
+            <div class="terminal">
+                <div class="command">$ mkdir Nama_Directory</div>
+                <div class="output">
+                    Output tidak akan muncul, Tapi Directory/Folder yang baru saja di buat akan langsung muncul dengan
+                    Nama_Directory.
+                </div>
+            </div>
+            <p>
+                <strong>Yang dipelajari:</strong> Dasar Command Linux untuk Membuat Directory/Folder.
+            </p>
+        </div>
+
+        <!-- Section 2 -->
+        <div id="mkdir-hidden" class="demo-section">
+            <h3>Command Membuat Directory/Folder yang DiSembunyikan.</h3>
+            <div class="terminal">
+                <div class="command">$ mkdir .Nama_Directory</div>
+                <div class="output">
+                    Output tidak akan muncul, Tapi Directory/Folder yang baru saja di tidak akan langsung muncul, harus
+                    di panggil agar muncul dengan ls -a atau ctrl + h di file manager.
+                </div>
+            </div>
+            <p>
+                <strong>Yang dipelajari:</strong> Dasar Command Linux untuk Membuat Directory/Folder yang Bersembunyi.
+            </p>
+        </div>
+
+        <!-- Section 3 -->
+        <div id="mkdir-space" class="demo-section">
+            <h3>Command Membuat Directory/Folder dengan Spasi</h3>
+            <div class="terminal">
+                <div class="command">$ mkdir 'Nama Folder'.<br>
+                    atau<br>
+                    $ mkdir "Nama Folder".<br>
+                    atau<br>
+                    $ mkdir Nama\ Folder.
+                </div>
+                <div class="output">
+                    Output tidak akan muncul, Tapi Directory/Folder yang baru saja dibuat, akan langsung muncul di file
+                    manager, nama folder dengan spasi.
+                </div>
+            </div>
+            <p>
+                <strong>Yang dipelajari:</strong> Dasar Command Linux untuk Membuat Directory/Folder dengan Spasi.
+            </p>
+        </div>
+
+
+        <!-- View Command List -->
+        <div id="ls" class="demo-section">
+            <h3>Command List untuk melihat semua yang ada di Directory.</h3>
+            <div class="terminal">
+                <div class="command">$ ls Nama_Directory</div>
+                <div class="output">
+                    Output akan Menampilkan List-list yang ada di didalam Directory seperti Folder, File, dll...
+                    Contohnya:
+                    <br>
+                    Animelist(Folder) | Book.pdf(File) | Catatan.txt
+                    Presentasi.pptx(File) | Kasir.cbl(File) | Index.html
+                    <br>
+                </div>
+            </div>
+            <p>
+                <strong>Yang dipelajari:</strong> Dasar Command Linux untuk Melihat semua isi dari target
+                Directory/Folder.
+            </p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-cyber">
+            <a href="../Skill/Cybersecurity.html">← Back to Main Portfolio</a>
+        </div>
+
+        <script>
+            function showDemo(demoId) {
+                // Hide all demo sections
+                document.querySelectorAll('.demo-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show selected demo
+                const demoSection = document.getElementById(demoId);
+                if (demoSection) {
+                    demoSection.classList.add('active');
+                    demoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            // Close demo when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!event.target.closest('.project-link') && !event.target.closest('.demo-section')) {
+                    document.querySelectorAll('.demo-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                }
+            });
+
+            // Add keyboard escape to close demos
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    document.querySelectorAll('.demo-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                }
+            });
+        </script>
+    </body>
+
+</html>

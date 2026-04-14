@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Terminal - KyuraID</title>
+    <style>
+
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+
+        .cyber-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .cyber-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .cyber-header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #000000, #fffefe, #000000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #000000;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cyber-header p {
+            color: #cccccc;
+            font-size: 1.2rem;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            background: rgb(0, 0, 0);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 120px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffffff; 
+            box-shadow: 0 10px 30px rgba(247, 247, 247, 0.2);
+        }
+
+        .project-card h3 {
+            color: rgb(255, 255, 255);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Navigation */
+        .nav-cyber {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .nav-cyber a {
+            color: #fffefe;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid #f5fdff;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-cyber a:hover {
+            background: rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+
+         @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cyber-header h1 {
+                font-size: 2rem;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+            .nav-cyber a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            
+        }
+
+    </style>
+    </head>
+    <body>
+    <body class="cyber-container">
+        <!-- Header -->
+        <div class="cyber-header">
+            <h1>Sajak by Kyura ID</h1>
+            <p>Sajak Imagination</p>
+        </div>
+        <!-- Projects Grid Linux CLI -->
+        <div class="projects-grid">
+            
+<!-- Sajak 1: Sajak Pertama -->
+<div class="project-card">
+    <h3><i>Sajak Pertama</i></h3>
+<p>
+<pre>
+    <i>"Akara membentang dalam hasrat yang menyala,
+    Asmaralana candramawa menari di gelapnya malam,
+    Kalbu yang terambau,
+    Mengingatkan pada tiasih yang masih tersimpan." </i>
+</pre>
+</p>
+</div>
+
+<!-- Sajak 2: Sajak Kedua -->
+<div class="project-card">
+    <h3>Sajak Kedua</h3>
+<p>
+<pre>
+    <i>"Aksara yang begitu sempurna,
+    Menyimpan sebuah tiasih,
+    yang tidak akan pernah Hirap,
+    Pada lembaran yang kian memudar."</i>
+</pre> 
+</p>
+</div>
+
+<!-- Sajak 3: Sajak Ketiga -->
+<div class="project-card">
+    <h3>Sajak Ketiga</h3>
+<p>
+<pre>
+    <i>"Dilangit malam yang sunyi,
+    Aku melihat banyaknya kiasan,
+    Kiasan dari berbagai tara yang berkilauan,
+    Membentuk sebuah keyakinan,
+    yang kain Menghilang."</i>
+</pre>
+</p>
+</div>      
+
+        </div>
+
+
+          <!-- Navigation -->
+        <div class="nav-cyber">
+            <a href="../index.html">← Back to Main Portfolio</a>
+        </div>
+
+        </body>
+</html>

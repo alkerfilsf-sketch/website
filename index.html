@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Sederhana - Kyura ID</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Settings Dropdown -->
+<nav class="navbar">
+ <div class="settings-dropdown">
+    <button class="settings-btn" aria-expanded="false">
+        ⚙️
+    </button>
+    <div class="dropdown-menu">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Skills</a></li>
+            <li><a href="#hobby">Hobby</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="Website-Login-Register-ForgotPassword/LoginPortofolio.html">Login</a></li>
+        </ul>
+    </div>
+   <h1 class="logo">KyuraID</h1>
+</div>
+</nav>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.querySelector('.settings-btn');
+    const menu = document.querySelector('.dropdown-menu');
+
+    btn.addEventListener('click', function() {
+        // Toggle class 'show' pada menu
+        menu.classList.toggle('show');
+        
+        // Toggle class 'rotated' pada tombol
+        btn.classList.toggle('rotated');
+
+        // Update aria-expanded
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !isExpanded);
+    });
+
+    // Tutup dropdown jika klik di luar
+    document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.remove('show');
+            btn.classList.remove('rotated');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+});
+</script>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="logo"></h1class>Welcome To My Website</h1>
+            <p>Ini adalah website sederhana buatan Kyura ID</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2><i>About Me</i></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Saya adalah seorang siswa SMK jurusan TKJ yang ingin menjadi Cyber Security yang menguasai dua skill yaitu Programmer dan AI Engineer. Saat ini saya masih Progress 1% dari pemula, bahasa yang masih progress adalah bahasa C++, Cobol. Sedangkan untuk Cyber Security dan AI Engineer masih OTW.</p>
+                    <p>Website ini dibuat untuk Menilai sudah sampai mana Progress saya.</p>
+                </div>
+                <div class="about-image">
+                    <div class="placeholder-img"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Services Section -->
+<section id="services" class="services">
+    <div class="container">
+        <h2 class="skill"><i>My Skills</i></h2>
+        <div class="services-grid">
+            <!-- Programmer Card dengan link -->
+            <a href="Skill/ProgrammerSkill.html" class="service-card-link">
+                <div class="service-card">
+                    <h3>Programmer</h3>
+                    <p>Cobol dan C++</p>
+                </div>
+            </a>
+            
+            <!-- AI Engineer Card dengan link -->
+            <a href="Skill/ai-engineer.html" class="service-card-link">
+                <div class="service-card">
+                    <h3>AI Engineer</h3>
+                    <p>Masih Progress</p>
+                </div>
+            </a>
+            
+            <!-- Cyber Security Card dengan link -->
+            <a href="Skill/Cybersecurity.html" class="service-card-link">
+                <div class="service-card">
+                    <h3>Cyber Security</h3>
+                    <p>Masih Progress</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Hobby Section -->
+ <section id="hobby" class="hobby">
+    <div class="container">
+        <h2 class="hobi"><i>My Hobby</i></h2>
+        <div class="hobby-grid">
+
+            <!-- Sajak Card dengan link -->
+            <a href="Hobi/Sajak.html" class="hobby-card-link">
+                <div class="hobby-card">
+                    <h3>Sajak</h3>
+                    <p>Kumpulan Sajak</p>
+                </div>
+            </a>
+            
+            <!-- Bahasa Diksi dan Sanskerta Card dengan link -->
+            <a href="#" class="hobby-card-link">
+                <div class="service-card">
+                    <h3>Bahasa Diksi dan Sanskerta</h3>
+                    <p>Koleksi Diksi dan Sanskerta</p>
+                </div>
+            </a>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Template Section -->
+ <section id="template" class="template">
+    <div class="container">
+        <h2 class="Template"><i>Template</i></h2>
+        <div class="template-grid">
+
+            <!-- Sajak Card dengan link -->
+            <a href="#" class="n8n-card-link">
+                <div class="n8n-card">
+                    <h3>Template Workflow Automation</h3>
+                    <p>Kumpulan Template</p>
+                </div>
+            </a>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2><i>Contact Me</i></h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Nama Anda" required>
+                <input type="email" placeholder="Email Anda" required>
+                <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                <button class="contact-button" type="submit">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Kyura ID. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
